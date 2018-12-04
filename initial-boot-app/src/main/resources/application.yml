@@ -1,0 +1,28 @@
+server:
+  ssl:
+    key-store: /home/pbarate/Desktop/Lynda/Spring_Boot/Course_execercise/initial-boot-app/src/main/resources/keystore.jks
+    key-store-password: password
+    key-alias: linkedin
+    key-password: password 
+---
+spring:
+  profiles: dev
+server:
+  port: 8000
+---
+spring:
+  profiles: test
+server:
+  port: 9000
+---
+management:
+  endpoint:
+    env:
+      enabled: true
+---
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+ 
