@@ -1,6 +1,9 @@
 package com.roomwebapp;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +25,13 @@ public class ApiController {
 	@GetMapping("/rooms")
 	public List<Room> getAllRooms(){
 		return this.roomServices.getAllRooms();
+	}
+	
+	@GetMapping("/locale")
+	public String getLocale() {
+		final Date now = Calendar.getInstance(Locale.getDefault()).getTime();
+		
+		System.out.println(now);
+		return now.toString();
 	}
 }
