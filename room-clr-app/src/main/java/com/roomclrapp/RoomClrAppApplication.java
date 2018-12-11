@@ -24,6 +24,11 @@ public class RoomClrAppApplication {
 	}
 	
 	@Bean
+	public TopicExchange topic() {
+		return new TopicExchange(exchangeName);
+	}
+	
+	@Bean
 	public Binding binding(Queue queue, TopicExchange topicExchange) {
 		return BindingBuilder.bind(queue).to(topicExchange).with(queueName);
 	}
